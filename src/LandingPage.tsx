@@ -2,6 +2,7 @@ import logo from "/logo-2x.svg";
 import "./Landingpage.css";
 import { Button } from "./components/Button/Button";
 import { ArrowArcRight, ArrowRight } from "phosphor-react";
+import { Footer } from "./components/Footer/Footer";
 
 export function LandingPage() {
   return (
@@ -22,8 +23,12 @@ export function LandingPage() {
 
         <div className="login">
         <Button content="Entre com a sua conta" href="#" />
-        <ArrowRight size={24} />
+        <ArrowRight size={24} color="#E5E7EB"/>
         </div>
+      </div>
+
+      <div className="footer">
+      <Footer content="Feito com ❤️ " href="https://github.com/swxtz" hrefContent="Gustavo Mendonca"/>
       </div>
     </main>
     </>
