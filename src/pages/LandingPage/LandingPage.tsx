@@ -1,8 +1,8 @@
 import logo from "/logo-2x.svg";
 import "./Landingpage.css";
-import { Button } from "./components/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { ArrowArcRight, ArrowRight } from "phosphor-react";
-import { Footer } from "./components/Footer/Footer";
+import { Footer } from "../../components/Footer/Footer";
 
 export function LandingPage() {
   return (
