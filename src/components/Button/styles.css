@@ -1,4 +1,5 @@
 .button {
   text-decoration: none;
-  color: black;
+  border: none;
+  cursor: pointer;
 }

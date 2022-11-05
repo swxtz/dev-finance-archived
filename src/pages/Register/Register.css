@@ -1,0 +1,9 @@
+.title {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.title h2 {
+  font-size: 3rem;
+  color: var(--gray-200);
+}

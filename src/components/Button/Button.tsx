@@ -1,20 +1,17 @@
-import "./styles.css";
+import { ButtonHTMLAttributes, ReactNode } from 'react'
 
+import './styles.css'
 
-interface ButtonProps {
-  content: string;
-  href: string;
-  icon?: string;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  text: string
+  icon?: ReactNode
 }
 
-
-export function Button(props: ButtonProps) {
+export function Button({ text, icon: Icon, ...rest }: ButtonProps) {
   return (
-    <div>
-    <a href={props.href} className="button">
-      {props.content}
-    </a>
-    {props.icon} 
-    </div>
-  );
+    <button {...rest} className="button">
+      {text}
+      {Icon }
+    </button>
+  )
 }

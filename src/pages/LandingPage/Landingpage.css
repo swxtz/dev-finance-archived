@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+a{
+  text-decoration: none;
+}
+
 .content {
   margin-top: 8rem;
   display: flex;
@@ -34,7 +38,7 @@
   align-items: center;
 }
 
-.buttons .create-account a{
+.buttons a button{
   background-color: var(--green-700);
   padding-block: .9375rem;
   padding-inline: 1.5rem;
@@ -47,11 +51,8 @@
   transition: 300ms;
 }
 
-.buttons .create-account a:hover {
-  filter: brightness(1.3);
-}
-
-.buttons .login  {
+.buttons a:last-of-type button{
+  background-color: var(--state-200);
   background-color: var(--stale-800);
   padding-block: .7813rem;
   padding-inline: 1.5rem;
@@ -62,7 +63,25 @@
   gap: .5rem;
 
   border-radius: .25rem;
+  
+  cursor: pointer;
+}
 
+.buttons  button:hover {
+  filter: brightness(1.3);
+}
+
+.buttons  {
+  padding-block: .7813rem;
+  padding-inline: 1.5rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: .5rem;
+
+  border-radius: .25rem;
+  
   cursor: pointer;
 }
 
@@ -71,10 +90,6 @@
   font-size: 1rem;
   line-height: 1.125rem;
   font-weight: 600;
-}
-
-.buttons .login:hover {
-  filter: brightness(1.3);
 }
 
 .footer {

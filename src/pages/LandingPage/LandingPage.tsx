@@ -4,6 +4,7 @@ import { Button } from "../../components/Button/Button";
 import { ArrowRight } from "phosphor-react";
 import { Footer } from "../../components/Footer/Footer";
 import { Logo } from "../../components/Logo/Logo";
+import { Link } from "react-router-dom";
 
 export function LandingPage() {
   return (
@@ -18,18 +19,21 @@ export function LandingPage() {
       </div>
 
       <div className="buttons">
-        <div className="create-account">
-        <Button content="Começe agora" href="/register" />
-        </div>
+        
+        <Link to="/register">
+          <Button text="Começe agora" className="register"/>
+        </Link>
 
-        <div className="login">
-        <Button content="Entre com a sua conta" href="#" />
-        <ArrowRight size={24} color="#E5E7EB"/>
-        </div>
+        {/* TEM TAB N KRL? */}
+        <Link to="/register">
+          <Button text="Entre com a sua conta" icon={ <ArrowRight size={24} color="#E5E7EB"/>} />
+         
+        </Link>
+        
       </div>
 
       <div className="footer">
-      <Footer content="Feito com ❤️ " href="https://github.com/swxtz" hrefContent="Gustavo Mendonca"/>
+        <Footer content="Feito com ❤️ " href="https://github.com/swxtz" hrefContent="Gustavo Mendonca"/>
       </div>
     </main>
     </>
