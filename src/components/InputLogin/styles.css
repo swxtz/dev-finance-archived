@@ -1,4 +1,23 @@
-p {
+.input {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  width: 24rem;
+  background-color: var(--zinc-700);
+  margin-inline: auto;
+  border-radius: .5rem;
+  padding-inline: 1rem;
+  gap: .5rem;
+}
+
+input {
+  background: transparent;
+  border: none;
+  outline: none;
+
+  width: 100%;
+
   font-size: 1rem;
-  line-height: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-400);
 }

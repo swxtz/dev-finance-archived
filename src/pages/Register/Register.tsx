@@ -22,7 +22,7 @@ export function Register() {
               inputType="email"
               label="E-mail"
               placeholder="jonh.doe@example.com"
-              icon={<EnvelopeSimple />}
+              icon={<EnvelopeSimple size={24} color="#9CA3AF" stroke="10" />}
             />
           </form>
         </div>

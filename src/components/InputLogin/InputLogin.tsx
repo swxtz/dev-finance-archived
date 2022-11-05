@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Input } from "semantic-ui-react";
 import "./styles.css";
 
 interface InputLoginProps {
@@ -10,12 +11,9 @@ interface InputLoginProps {
 
 export function InputLogin(props: InputLoginProps) {
   return (
-    <div>
-      <p>{props.label}</p>
-      <div>
-        {props.icon}
-        <input type={props.inputType} placeholder={props.placeholder}/>
-      </div>
+    <div className="input">
+      {props.icon}
+      <input type={props.inputType} placeholder={props.placeholder} />
     </div>
-  )
+  );
 }
