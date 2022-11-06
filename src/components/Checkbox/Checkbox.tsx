@@ -1,16 +1,17 @@
 import "./styles.css";
 import * as CheckboxRadix from '@radix-ui/react-checkbox';
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
-interface CheckboxProps {
+export interface CheckboxProps {
   icon: ReactNode;
 }
 
 export function Checkbox(props: CheckboxProps) {
+
   return (
     <div className="wrapper">
       <div className="CheckWrapper">
-       <CheckboxRadix.Root className="CheckRoot">
+       <CheckboxRadix.Root  className="CheckRoot">
         <CheckboxRadix.Indicator>
           {props.icon}
         </CheckboxRadix.Indicator>
