@@ -52,68 +52,69 @@ export function LoginPage() {
   return (
     <>
       <Logo logoUrl={logoImg} />
+      <div className="loginPage-animation">
+        <div className="title-login">
+          <h2>Bem-vindo de volta</h2>
+        </div>
 
-      <div className="title-login">
-        <h2>Bem-vindo de volta</h2>
-      </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
 
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-
-      <main>
-        <div className="form-login">
-          <form action="" onSubmit={validateFormHandle}>
-            <InputLogin
-              inputType="email"
-              label="E-mail"
-              placeholder="jonh.doe@example.com"
-              onChange={event => setUserEmail(event.target.value)}
-              icon={<EnvelopeSimple size={24} color="#9CA3AF" stroke="10" />}
-            />
-            <InputLogin
-              inputType="password"
-              label="Senha"
-              placeholder="*********"
-              onChange={event => setUserPassword(event.target.value)}
-              icon={<Key size={24} color="#9CA3AF" stroke="10" />}
-            />
-
-            <div
-              className={`login-enter-button ${
-                enableLogin ? "login-button-enable" : "login-button-disable"
-              }`}
-            >
-              <Button
-                text={
-                  isLoadingLogin ? (
-                    <CircleNotch className="login-spin-button" size={24} />
-                  ) : (
-                    "Entrar"
-                  )
-                }
-                onClick={event => loginFormHandle(event)}
-                disabled={!enableLogin}
+        <main>
+          <div className="form-login">
+            <form action="" onSubmit={validateFormHandle}>
+              <InputLogin
+                inputType="email"
+                label="E-mail"
+                placeholder="jonh.doe@example.com"
+                onChange={event => setUserEmail(event.target.value)}
+                icon={<EnvelopeSimple size={24} color="#9CA3AF" stroke="10" />}
               />
-            </div>
-          </form>
-        </div>
+              <InputLogin
+                inputType="password"
+                label="Senha"
+                placeholder="*********"
+                onChange={event => setUserPassword(event.target.value)}
+                icon={<Key size={24} color="#9CA3AF" stroke="10" />}
+              />
 
-        <div className="link-footer">
-          <Link to="/register">
-            <p>Não possui conta? crie uma agora</p>
-          </Link>
-        </div>
-      </main>
+              <div
+                className={`login-enter-button ${
+                  enableLogin ? "login-button-enable" : "login-button-disable"
+                }`}
+              >
+                <Button
+                  text={
+                    isLoadingLogin ? (
+                      <CircleNotch className="login-spin-button" size={24} />
+                    ) : (
+                      "Entrar"
+                    )
+                  }
+                  onClick={event => loginFormHandle(event)}
+                  disabled={!enableLogin}
+                />
+              </div>
+            </form>
+          </div>
+
+          <div className="link-footer">
+            <Link to="/register">
+              <p>Não possui conta? crie uma agora</p>
+            </Link>
+          </div>
+        </main>
+      </div>
     </>
   );
 }

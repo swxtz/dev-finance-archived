@@ -50,11 +50,28 @@
   animation-timing-function: linear;
 }
 
+.loginPage-animation {
+  animation: dragtoright;
+  animation-duration: 300ms;
+}
+
 @keyframes spinLoginButton {
   from {
       transform:rotate(0deg);
   }
   to {
       transform:rotate(360deg);
+  }
+}
+
+@keyframes dragtoright {
+  from {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0px);
+    opacity: 1;
   }
 }

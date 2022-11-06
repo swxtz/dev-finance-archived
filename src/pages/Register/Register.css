@@ -93,3 +93,20 @@
   text-align: center;
   text-decoration: underline;
 }
+
+.register-animation{
+  animation: dragtoleft;
+  animation-duration: 300ms;
+}
+
+@keyframes dragtoleft {
+  from {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
