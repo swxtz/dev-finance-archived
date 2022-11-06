@@ -1,0 +1,23 @@
+.CheckRoot {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .5rem;
+  border: none;
+  background-color: var(--zinc-700);
+}
+
+.CheckWrapper {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  color: var(--gray-300);
+  font-size: 15px;
+}
+
+.CheckWrapper a {
+  color: var(--gray-300);
+  
+}

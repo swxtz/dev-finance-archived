@@ -1,8 +1,13 @@
+.wrapper {
+  width: 24rem;
+  margin-inline: auto;
+}
+
 .input {
   display: flex;
   align-items: center;
   height: 3rem;
-  width: 24rem;
+  width: 100%;
   background-color: var(--zinc-700);
   margin-inline: auto;
   border-radius: .5rem;
@@ -20,4 +25,13 @@ input {
   font-size: 1rem;
   font-weight: 600;
   color: var(--gray-400);
+}
+
+
+p {
+  color: var(--gray-400);
+  margin-bottom: .5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.125rem;
 }

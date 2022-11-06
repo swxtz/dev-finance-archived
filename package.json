@@ -10,6 +10,7 @@
     "commit": "git add . && git-cz"
   },
   "dependencies": {
+    "@radix-ui/react-checkbox": "^1.0.1",
     "phosphor-icons": "^1.4.2",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
