@@ -24,8 +24,7 @@ export function LandingPage() {
           <Button text="Começe agora" className="register"/>
         </Link>
 
-        {/* TEM TAB N KRL? */}
-        <Link to="/register">
+        <Link to="/login">
           <Button text="Entre com a sua conta" icon={ <ArrowRight size={24} color="#E5E7EB"/>} />
          
         </Link>

@@ -6,45 +6,21 @@ import { Check, EnvelopeSimple, Key } from "phosphor-react";
 import { FormEvent, useEffect, useState } from "react";
 import { Button } from "../../components/Button/Button";
 import * as CheckboxRadix from "@radix-ui/react-checkbox";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
+import { toastEmailErrorAlert, toastPasswordErrorAlert, toastUserCreatedAlert } from "../../errors/toastify";
 
 
 
 export function Register() {
-
-  function toastEmailErrorAlert() {
-    toast.error("Email invalido! Por favor digite um email valido", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      });
-  }
-
-  function toastPasswordErrorAlert() {
-    toast.error("As senhas não são iguais!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      });
-  }
 
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [userConfirmPassword, setUserConfirmPassword] = useState("");
   const [checked, setChecked] = useState(false);
 
-  function loginFormHandle(event: FormEvent) {
+  function createAccoutHandle(event: FormEvent) {
     event.preventDefault();
     const email = userEmail.trim();
     const password = userPassword.trim();
@@ -53,7 +29,9 @@ export function Register() {
     if (email === "" || !email.includes("@")) {
       toastEmailErrorAlert();
     } else if(password !== confirmPassword) {
-      toastPasswordErrorAlert()
+      toastPasswordErrorAlert();
+    } else {
+      toastUserCreatedAlert();
     }
   }
 
@@ -76,7 +54,7 @@ export function Register() {
         <Logo logoUrl={logoImg} />
       </div>
 
-      <div className="title">
+      <div className="title-register">
         <h2>Insira seus dados</h2>
       </div>
 
@@ -95,7 +73,7 @@ export function Register() {
 
       <main>
         <div className="form">
-          <form onSubmit={loginFormHandle}>
+          <form onSubmit={createAccoutHandle}>
             <div className="inputs">
               <InputLogin
                 inputType="email"
@@ -148,17 +126,21 @@ export function Register() {
             </div>
 
             <div
-              className={`button-register ${checked ? "" : "button-disable"}`}
+              className={`button-register ${checked ? "button-register-active" : "button-disable"}`}
             >
               <Button
                 text="Criar conta"
                 type="submit"
                 disabled={!checked}
-                onClick={event => loginFormHandle(event)}
+                className="button-register"
+                onClick={event => createAccoutHandle(event)}
               />
             </div>
           </form>
         </div>
+        <Link className="link-footer" to="/login">
+          <p>Ja possui conta?</p>
+        </Link>
       </main>
     </>
   );

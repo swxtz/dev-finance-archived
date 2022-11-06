@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, ReactNode } from 'react'
 import './styles.css'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string
+  text: ReactNode;
   icon?: ReactNode
 }
 

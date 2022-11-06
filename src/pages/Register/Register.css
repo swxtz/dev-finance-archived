@@ -1,9 +1,9 @@
-.title {
+.title-register {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 1.75rem;
 }
 
-.title h2 {
+.title-register h2 {
   font-size: 3rem;
   color: var(--gray-200);
 }
@@ -44,10 +44,14 @@
   background-color: var(--green-700);
   border-radius: .5rem;
   color: var(--gray-200);
-
+  cursor: pointer;
   font-size: 1.25rem;
   line-height: 1.125rem;
   font-weight: 600;
+}
+
+.button-register.button-register-active{
+  cursor: pointer;
 }
 
 .CheckRoot {
@@ -75,5 +79,17 @@
 }
 
 .checkbox-link {
+  text-decoration: underline;
+}
+
+
+.button-register-active:hover{
+  filter: brightness(1.2);
+  
+}
+
+.link-footer p {
+  margin-top: 1.125rem;
+  text-align: center;
   text-decoration: underline;
 }
