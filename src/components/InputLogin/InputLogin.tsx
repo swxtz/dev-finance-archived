@@ -1,21 +1,20 @@
-import { ReactNode } from "react";
+import { InputHTMLAttributes, ReactNode } from "react";
 import { Input } from "semantic-ui-react";
 import "./styles.css";
 
-interface InputLoginProps{
+interface InputLoginProps extends InputHTMLAttributes<HTMLInputElement>{
   label: string;
   inputType: string;
-  placeholder?: string;
   icon?: ReactNode;
 }
 
-export function InputLogin(props: InputLoginProps) {
+export function InputLogin({ label, inputType, placeholder, icon, ...rest }: InputLoginProps) {
   return (
     <div className="wrapper">    
-      <p>{props.label}</p>
+      <p>{label}</p>
         <div className="input">
-          {props.icon}
-          <input type={props.inputType} placeholder={props.placeholder} />
+          {icon}
+          <input {...rest} type={inputType} placeholder={placeholder} />
       </div>
     </div>
 

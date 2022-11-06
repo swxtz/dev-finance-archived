@@ -3,17 +3,37 @@ import logoImg from "/logo-2x.svg";
 import "./Register.css";
 import { InputLogin } from "../../components/InputLogin/InputLogin";
 import { Check, EnvelopeSimple, Key } from "phosphor-react";
-import { useState } from "react";
+import { FormEvent, ReactNode, useEffect, useState } from "react";
 import { Button } from "../../components/Button/Button";
 import * as CheckboxRadix from "@radix-ui/react-checkbox";
 
-export function Register() {
-  const [userEmail, setUserEmail] = useState("");
-  const [checked, setChecked] = useState(false);
 
-  function loginFormHandle(event: any) {
+export function Register() {
+  
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const [userRePassword, setUserRePassword] = useState("");
+  const [checked, setChecked] = useState(true);
+
+  function loginFormHandle(event: FormEvent) {
     event.preventDefault();
+    console.log(userEmail);
+    console.log(userPassword);
+    console.log(userRePassword);
+
   }
+
+  useEffect(() => {
+    
+  } ,[userEmail])
+
+  useEffect(() => {
+    
+  } ,[userPassword])
+
+  useEffect(() => {
+    
+  } ,[userRePassword])
 
   function onClickCheckboxHandle() {
     if(!checked) {
@@ -34,11 +54,14 @@ export function Register() {
 
       <main>
         <div className="form">
-          <form method="POST">
+          <form onSubmit={loginFormHandle} >
             <div className="inputs">
               <InputLogin
                 inputType="email"
                 label="E-mail"
+                id="email"
+                value={userEmail}
+                onChange={(event) => setUserEmail(event.target.value)}
                 placeholder="jonh.doe@example.com"
                 icon={<EnvelopeSimple size={24} color="#9CA3AF" stroke="10" />}
               />
@@ -46,12 +69,16 @@ export function Register() {
                 inputType="password"
                 label="Senha"
                 placeholder="*********"
+                id="password"
+                onChange={(event) => setUserPassword(event.target.value)}
                 icon={<Key size={24} color="#9CA3AF" stroke="10" />}
               />
               <InputLogin
                 inputType="password"
                 label="Repita sua senha"
                 placeholder="*********"
+                id="rePassword"
+                onChange={(event) => setUserRePassword(event.target.value)}
                 icon={<Key size={24} color="#9CA3AF" stroke="10" />}
               />
             </div>
@@ -65,8 +92,7 @@ export function Register() {
                     </CheckboxRadix.Indicator>
                   </CheckboxRadix.Root>
                   <span>
-                    você concorda com todos os 
-                    <a href="#">termos de serviços?</a>
+                    você concorda com todos os <a className="checkbox-link" href="#">termos de serviços</a>?
                   </span>
                 </div>
               </div>
@@ -76,8 +102,8 @@ export function Register() {
               <Button
                 text="Criar conta"
                 type="submit"
-                onClick={e => loginFormHandle(e)}
                 disabled={!checked}
+                onClick={(event) => loginFormHandle(event)}
               />
             </div>
           </form>
