@@ -35,7 +35,6 @@ export function LoginPage() {
 
   function loginFormHandle(event: FormEvent) {
     event.preventDefault();
-    console.log("enviou");
     const email = userEmail.trim();
     const password = userPassword.trim();
 
