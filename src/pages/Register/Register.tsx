@@ -15,6 +15,8 @@ import {
   toastUserCreatedAlert
 } from "../../errors/toastify";
 
+
+
 export function Register() {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -35,6 +37,12 @@ export function Register() {
       toastUserCreatedAlert();
     }
   }
+
+  const pageTitle: string = "Dev.Finance | Crie sua conta";
+
+  useEffect(() => {
+    document.title = pageTitle;
+  }, [pageTitle]);
 
   useEffect(() => {}, [userEmail]);
 

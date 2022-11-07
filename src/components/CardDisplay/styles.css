@@ -1,0 +1,35 @@
+.card-display {
+  width: 22rem;
+  height: 8.5rem;
+  background: var(--zinc-700);
+  border-radius: .3125rem;
+}
+
+.card-wrapper{
+  padding: 1.5625rem 1.5625rem 1.1331rem 2rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--gray-300);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: .875rem;
+}
+
+.card-value {
+  color: var(--gray-200);
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 3.375rem;
+}
+
+.card-dollar {
+  font-weight: 400;
+}
+
+.card-green {
+  background-color: var(--green-700);
+}

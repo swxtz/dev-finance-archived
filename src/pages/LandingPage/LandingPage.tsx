@@ -5,8 +5,16 @@ import { ArrowRight } from "phosphor-react";
 import { Footer } from "../../components/Footer/Footer";
 import { Logo } from "../../components/Logo/Logo";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 export function LandingPage() {
+
+  const pageTitle: string = "Dev.Finance | Gerencie sua vida finaceira";
+
+  useEffect(() => {
+    document.title = pageTitle;
+  }, [pageTitle]);
+
   return (
     <>
     <div className="logo">

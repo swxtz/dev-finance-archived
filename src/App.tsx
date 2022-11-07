@@ -1,4 +1,5 @@
 import { BrowserRouter,  Routes, Link, Router, Route } from "react-router-dom";
+import { Home } from "./pages/Home/Home";
 import { LandingPage } from "./pages/LandingPage/LandingPage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { Register } from "./pages/Register/Register";
@@ -10,6 +11,7 @@ export function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </BrowserRouter>
   )

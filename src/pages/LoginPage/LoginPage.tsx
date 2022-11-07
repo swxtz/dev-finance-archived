@@ -12,7 +12,7 @@ import {
   toastPasswordNotValidErrorAlert,
   toastPasswordOrEmailWrong
 } from "../../errors/toastify";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function LoginPage() {
   const [userEmail, setUserEmail] = useState("");
@@ -24,6 +24,14 @@ export function LoginPage() {
     email: "teste@teste.com",
     password: "teste"
   };
+
+  const navigate = useNavigate();
+
+  const pageTitle: string = "Dev.Finance | Login";
+
+  useEffect(() => {
+    document.title = pageTitle;
+  }, [pageTitle]);
 
   function loginFormHandle(event: FormEvent) {
     event.preventDefault();
@@ -39,7 +47,7 @@ export function LoginPage() {
       setIsLoadingLogin(true);
       if (authFake.email === email && authFake.password === password) {
         setIsLoadingLogin(false);
-        <Navigate replace to="/register" />;
+        navigate("/home");
       } else {
         setIsLoadingLogin(false);
         toastPasswordOrEmailWrong();
