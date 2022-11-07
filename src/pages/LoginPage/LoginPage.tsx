@@ -39,6 +39,8 @@ export function LoginPage() {
     const email = userEmail.trim();
     const password = userPassword.trim();
 
+    const timeout: number = 1500;
+
     if (email === "" || !email.includes("@")) {
       toastEmailErrorAlert();
     } else if (password === "") {
@@ -46,8 +48,12 @@ export function LoginPage() {
     } else {
       setIsLoadingLogin(true);
       if (authFake.email === email && authFake.password === password) {
-        setIsLoadingLogin(false);
-        navigate("/home");
+        function login() {
+          setIsLoadingLogin(false);
+          navigate("/home");
+        }
+        
+        setTimeout(login, timeout)
       } else {
         setIsLoadingLogin(false);
         toastPasswordOrEmailWrong();

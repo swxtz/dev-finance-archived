@@ -8,3 +8,21 @@
   display: flex;
   gap: 2rem;
 }
+
+.transactions{
+  margin-top: 3.875rem;
+}
+
+.new-transaction button {
+  background-color: transparent;
+  color: var(--green-700);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  transition: 300ms;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.new-transaction button:hover {
+  filter: brightness(1.3);
+}

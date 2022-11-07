@@ -1,0 +1,31 @@
+.table-row{
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 2rem;
+  margin-top: .5rem;
+  background-color: var(--zinc-700);
+  align-items: center;
+  border-radius: .3125rem;
+}
+
+.table-example span {
+  color: var(--gray-200);
+}
+
+.table-desc {
+  color: var(--gray-200);
+}
+
+.table-red {
+  color: var(--red-600);
+}
+
+.table-green {
+  color: var(--green-700);
+}
+
+.table-date {
+  color: var(--gray-300);
+}
