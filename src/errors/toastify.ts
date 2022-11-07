@@ -29,7 +29,7 @@ export function toastPasswordErrorAlert() {
 }
 
 export function toastPasswordNotValidErrorAlert() {
-  toast.error("As senhas não são iguais!", {
+  toast.error("As senhas não é valida!", {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,

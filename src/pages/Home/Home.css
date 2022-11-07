@@ -1,16 +1,20 @@
 .home-wrapper {
   font-family: 'Poppins', sans-serif;
-  margin-inline: 7.6875rem;
+  margin-inline: auto;
+  max-width: 1000px;
 }
 
 .cards-display {
   margin-top: 5.375rem;
   display: flex;
-  gap: 2rem;
+  gap: 2rem; 
+  justify-content: space-between;
+  max-width: 1000px;
 }
 
 .transactions{
   margin-top: 3.875rem;
+  max-width: 1000px;
 }
 
 .new-transaction button {
