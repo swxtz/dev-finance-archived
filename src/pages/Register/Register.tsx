@@ -12,10 +12,10 @@ import { Link } from "react-router-dom";
 import {
   toastEmailErrorAlert,
   toastPasswordErrorAlert,
+  toastThisEmailHasBeenUsed,
   toastUserCreatedAlert
 } from "../../errors/toastify";
-
-
+import { api } from "../../libs/axiox";
 
 export function Register() {
   const [userEmail, setUserEmail] = useState("");
@@ -34,7 +34,16 @@ export function Register() {
     } else if (password !== confirmPassword) {
       toastPasswordErrorAlert();
     } else {
-      toastUserCreatedAlert();
+      api.post("/user", { email, password}).then(response => 
+        { if (response.status === 201) {
+            toastUserCreatedAlert();
+          }
+        }).catch(err => {
+          if (err.response.status == 400) {
+            toastThisEmailHasBeenUsed();
+            console.log(err.response.data)
+          }
+        });
     }
   }
 
@@ -57,6 +66,7 @@ export function Register() {
       setChecked(false);
     }
   }
+
   return (
     <>
       <div className="logo-register">
