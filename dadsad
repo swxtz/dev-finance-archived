@@ -1,0 +1,13 @@
+api.post("/user/login", { email, password }).then(data => {
+        const token:String = data.data.token;
+
+        const loggedUser = {
+          token,
+          email
+        }
+        
+        localStorage.setItem("user", JSON.stringify(loggedUser))
+        setUser(loggedUser)
+
+        navigate("/home")
+    })

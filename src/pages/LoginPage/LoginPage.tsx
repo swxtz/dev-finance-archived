@@ -16,7 +16,7 @@ import {
 } from "../../errors/toastify";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../../libs/axiox";
-import { AuthContext } from "../../contexts/Auth";
+
 import { AuthInterfaceProps } from "../../types/AuthTypes";
 
 export function LoginPage() {
@@ -24,8 +24,6 @@ export function LoginPage() {
   const [userPassword, setUserPassword] = useState("");
   const [enableLogin, setEnableLogin] = useState(true);
   const [isLoadingLogin, setIsLoadingLogin] = useState(false);
-
-  const { authenticated, login } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -39,16 +37,11 @@ export function LoginPage() {
     event.preventDefault();
     const timeout: number = 1500;
 
-    if (userEmail.trim() === "" || userPassword.trim()=== "") {
+    if (userEmail.trim() === "" || userPassword.trim() === "") {
       toastEmailOrPasswordWrong();
-      return
+      return;
     }
-    
-    setIsLoadingLogin(true);
-    api.post("/user/login", { email: userEmail, password: userPassword }).then(data => {
-        console.log(data.data.token)
-    })
-
+    setIsLoadingLogin(true)
   }
 
   function validateFormHandle() {}
