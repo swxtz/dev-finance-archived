@@ -14,6 +14,31 @@ export function toastEmailErrorAlert() {
     theme: "dark",
     });
 }
+export function toastEmailOrPasswordWrong() {
+  toast.error("Email ou senha errado", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
+}
+
+export function toastThisUserDoesNotExist() {
+  toast.error("Este usuario não existe!", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
+}
 
 export function toastThisEmailHasBeenUsed() {
   toast.error("Esse email ja foi usado! Por favor digite outro email", {

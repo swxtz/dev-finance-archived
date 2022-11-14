@@ -1,5 +1,5 @@
-import { CircleNotch, EnvelopeSimple, Key, Password } from "phosphor-react";
-import { FormEvent, useEffect, useState } from "react";
+import { CircleNotch, EnvelopeSimple, Key } from "phosphor-react";
+import { FormEvent, useEffect, useState, useContext } from "react";
 import { ToastContainer } from "react-toastify";
 import { Button } from "../../components/Button/Button";
 import { InputLogin } from "../../components/InputLogin/InputLogin";
@@ -9,10 +9,15 @@ import logoImg from "/logo-2x.svg";
 import "react-toastify/dist/ReactToastify.css";
 import {
   toastEmailErrorAlert,
+  toastEmailOrPasswordWrong,
   toastPasswordNotValidErrorAlert,
-  toastPasswordOrEmailWrong
+  toastPasswordOrEmailWrong,
+  toastThisUserDoesNotExist
 } from "../../errors/toastify";
 import { Link, useNavigate } from "react-router-dom";
+import { api } from "../../libs/axiox";
+import { AuthContext } from "../../contexts/Auth";
+import { AuthInterfaceProps } from "../../types/AuthTypes";
 
 export function LoginPage() {
   const [userEmail, setUserEmail] = useState("");
@@ -20,10 +25,7 @@ export function LoginPage() {
   const [enableLogin, setEnableLogin] = useState(true);
   const [isLoadingLogin, setIsLoadingLogin] = useState(false);
 
-  const authFake = {
-    email: "teste@teste.com",
-    password: "teste"
-  };
+  const { authenticated, login } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -35,29 +37,18 @@ export function LoginPage() {
 
   function loginFormHandle(event: FormEvent) {
     event.preventDefault();
-    const email = userEmail.trim();
-    const password = userPassword.trim();
-
     const timeout: number = 1500;
 
-    if (email === "" || !email.includes("@")) {
-      toastEmailErrorAlert();
-    } else if (password === "") {
-      toastPasswordNotValidErrorAlert();
-    } else {
-      setIsLoadingLogin(true);
-      if (authFake.email === email && authFake.password === password) {
-        function login() {
-          setIsLoadingLogin(false);
-          navigate("/home");
-        }
-        
-        setTimeout(login, timeout)
-      } else {
-        setIsLoadingLogin(false);
-        toastPasswordOrEmailWrong();
-      }
+    if (userEmail.trim() === "" || userPassword.trim()=== "") {
+      toastEmailOrPasswordWrong();
+      return
     }
+    
+    setIsLoadingLogin(true);
+    api.post("/user/login", { email: userEmail, password: userPassword }).then(data => {
+        console.log(data.data.token)
+    })
+
   }
 
   function validateFormHandle() {}
